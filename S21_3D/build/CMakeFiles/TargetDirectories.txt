@@ -1,0 +1,4 @@
+/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/src/build/CMakeFiles/3dviewer.dir
+/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/src/build/CMakeFiles/edit_cache.dir
+/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/src/build/CMakeFiles/rebuild_cache.dir
+/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/src/build/CMakeFiles/3dviewer_autogen.dir

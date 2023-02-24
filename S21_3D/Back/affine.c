@@ -52,6 +52,7 @@ double find_D_max(dataStruct *data) {
  * @param data - this is a struct with required data.
  * @param size_value - a value to what the programm should resize form.
  */
+
 void resize_to_one(dataStruct *data, double size_value) {
   double D_max = find_D_max(data);
   double scale = size_value * (size_value) / D_max;
@@ -91,21 +92,32 @@ void move_form(dataStruct *data, double *shift) {
 
 /**
  * @brief This is a function wich resize form.
- * This is a function wich resize form, makes it smaller or bigger.
+ * This is a function wich resize form, makes it smaller.
  * @param data - this is a struct with required data.
  * @param zoom - value to what we want to resize.
  */
-void resize_form_more(dataStruct *data, double zoom) {
-  for (int i = 0; i < data->countVertexes; i++) {
+void resize_form_more(dataStruct *data, double zoom, int current_zoom_l,
+                      int current_zoom_m) {
+  for (int i = 0; i < (data->countVertexes + current_zoom_l); i++) {
     data->dataVertexes[i] *= zoom;
+    current_zoom_m++;
   }
+  current_zoom_l = 0;
 }
 
-////доку сюда
-void resize_form_less(dataStruct *data, double zoom) {
-  for (int i = 0; i < data->countVertexes; i++) {
+/**
+ * @brief This is a function wich resize form.
+ * This is a function wich resize form, makes it smaller.
+ * @param data - this is a struct with required data.
+ * @param zoom - value to what we want to resize.
+ */
+void resize_form_less(dataStruct *data, double zoom, int current_zoom_l,
+                      int current_zoom_m) {
+  for (int i = 0; i < (data->countVertexes + current_zoom_m); i++) {
     data->dataVertexes[i] /= zoom;
+    current_zoom_l++;
   }
+  current_zoom_m = 0;
 }
 
 /**
@@ -149,7 +161,16 @@ void rotate_form(dataStruct *data, double *rotate) {
   }
 }
 
-////доку сюда
+/**
+ * @brief This is a function wich moves form to start position.
+ * This is a function wich moves form to start position. If reset_move[0] != 0
+ * it moves form to centr of the X-axis, if reset_move[1] != 0 it moves form to
+ * centr of the Y-axis, if reset_move[2] != 0 it moves form to centr of the
+ * Z-axis
+ * @param data - this is a struct with required data.
+ * @param shift -  an array with data. reset_move[0] - move by X, reset_move[1]
+ * - move by Y, reset_move[2] - move by Z.
+ */
 void reset_move_by_axis(dataStruct *data, int *reset_move) {
   double max = 0, min = 0, central = 0;
   int idx = 0;
@@ -168,8 +189,6 @@ void reset_move_by_axis(dataStruct *data, int *reset_move) {
       data->dataVertexes[i] -= central;
     }
   }
-
-  //изменил порядок el if на if !
   if (reset_move[1] != 0) {
     double *dataY = (double *)calloc(data->countVertexes / 3, sizeof(double));
     for (int i = 1; i < data->countVertexes; i += 3, idx++) {
@@ -200,6 +219,25 @@ void reset_move_by_axis(dataStruct *data, int *reset_move) {
       data->dataVertexes[i + 2] -= central;
     }
   }
+}
+
+/**
+ * @brief This is a funcktion wich reset zoom after changing;
+ * This is a function that makes a form smaller to show it ti user n full
+ * size. This is a function that makes a form smaller. It resize the form from
+ * -1 to one by X, by Y and by Z.
+ * @param data - this is a struct with required data.
+ * @param size_value - a value to what the programm should resize form.
+ */
+void reset_zoom(dataStruct *data, double size_value) {
+  parsVal(data);
+  double D_max = find_D_max(data);
+  double scale = size_value * (size_value) / D_max;
+
+  for (int i = 0; i < data->countVertexes; i++) {
+    data->dataVertexes[i] *= scale;
+  }
+  parsVal(data);
 }
 
 //     printf("\ncentrlVertexesY = %f  +  (%f  -  %f)  /2 \n",

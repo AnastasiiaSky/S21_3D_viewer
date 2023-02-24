@@ -128,8 +128,35 @@ START_TEST(resizeMoreLess) {
   int res_move[3] = {1, 2, 3};
   reset_move_by_axis(&data, res_move);
 
-  resize_form_less(&data, 0.5);
-  resize_form_more(&data, 0.9);
+  resize_form_less(&data, 0.5, 0, 0);
+  resize_form_more(&data, 0.9, 0, 0);
+
+  for (int i = 0; i < data.countVertexes; i++) {
+    ck_assert_double_eq_tol(arr[i], data.dataVertexes[i], 1e-6);
+  }
+  clearStruct(&data);
+}
+END_TEST
+
+START_TEST(resetZoom) {
+  char fname[] = "Back/TestObj/testFile_2.obj";
+  double arr[24] = {0.848552,  2.420000,  0.228165,  0.848552,  2.420000,
+                    0.228165,  -2.187100, 0.865586,  -1.046830, -2.187101,
+                    0.865586,  -1.046829, -0.848552, -2.420000, -0.228165,
+                    -0.848552, -2.420000, -0.228165, 2.187101,  -0.865586,
+                    1.046829,  2.187100,  -0.865586, 1.046830};
+  data = parser(fname);
+
+  double rotate_arr[3] = {1, 2, 3};
+  rotate_form(&data, rotate_arr);
+
+  int res_move[3] = {1, 2, 3};
+  reset_move_by_axis(&data, res_move);
+
+  resize_form_less(&data, 0.5, 0, 0);
+  resize_form_more(&data, 0.9, 0, 0);
+
+  reset_zoom(&data, 2.2);
 
   for (int i = 0; i < data.countVertexes; i++) {
     ck_assert_double_eq_tol(arr[i], data.dataVertexes[i], 1e-6);
@@ -162,6 +189,7 @@ int main(void) {
   tcase_add_test(tc, resetAxis);
   tcase_add_test(tc, resizeMoreLess);
   tcase_add_test(tc, EmptyFile);
+  tcase_add_test(tc, resetZoom);
 
   srunner_run_all(sr, CK_ENV);
   nf = srunner_ntests_failed(sr);
@@ -169,7 +197,3 @@ int main(void) {
 
   return nf == 0 ? 0 : 1;
 }
-
-//    for (int i = 0; i < data.countVertexes; i++) {
-//        printf("%f ", data.dataVertexes[i]);
-//    }

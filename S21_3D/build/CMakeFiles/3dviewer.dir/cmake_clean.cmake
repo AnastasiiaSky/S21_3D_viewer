@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "3dviewer_autogen"
+  "CMakeFiles/3dviewer_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/3dviewer_autogen.dir/ParseCache.txt"
+  "3dviewer.app/Contents/MacOS/3dviewer"
+  "3dviewer.pdb"
+  "CMakeFiles/3dviewer.dir/3dviewer_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/3dviewer.dir/3dviewer_autogen/mocs_compilation.cpp.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/gifimage/qgifimage.cpp.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/gifimage/qgifimage.cpp.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/dgif_lib.c.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/dgif_lib.c.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/egif_lib.c.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/egif_lib.c.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/gif_err.c.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/gif_err.c.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/gif_font.c.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/gif_font.c.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/gif_hash.c.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/gif_hash.c.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/gifalloc.c.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/gifalloc.c.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/quantize.c.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/datasets/giflib/quantize.c.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/src/Back/affine.c.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/src/Back/affine.c.o.d"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/src/Back/parser.c.o"
+  "CMakeFiles/3dviewer.dir/Users/qylenett/Desktop/C8_3DViewer_v1.0-1/src/Back/parser.c.o.d"
+  "CMakeFiles/3dviewer.dir/glwidget.cpp.o"
+  "CMakeFiles/3dviewer.dir/glwidget.cpp.o.d"
+  "CMakeFiles/3dviewer.dir/main.cpp.o"
+  "CMakeFiles/3dviewer.dir/main.cpp.o.d"
+  "CMakeFiles/3dviewer.dir/mainwindow.cpp.o"
+  "CMakeFiles/3dviewer.dir/mainwindow.cpp.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C CXX)
+  include(CMakeFiles/3dviewer.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
